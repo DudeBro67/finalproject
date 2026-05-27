@@ -18,17 +18,12 @@
 
       <h3>Items in Cart: <span id="cartCount">0</span></h3>
 
-      <!-- CART FORM -->
       <form class="border p-3 rounded mt-4">
 
         <h4 class="mb-3">Your Cart</h4>
 
-        <!-- Item list -->
         <div id="cartItems"></div>
-
         <hr>
-
-        <!-- Price summary -->
         <div class="form-group">
           <label>Subtotal:</label>
           <input type="text" id="subtotal" class="form-control" readonly>
@@ -51,15 +46,12 @@
     </div>
 
     <script>
-      // Show cart count
       document.getElementById("cartCount").innerText =
         localStorage.getItem("cartCount") || 0;
 
-      // Read item from URL
       const params = new URLSearchParams(window.location.search);
       const item = params.get("item");
 
-      // Price list
       const prices = {
         "Chocolate Chip Cookie": 2.50,
         "Blueberry Muffin": 3.00,
