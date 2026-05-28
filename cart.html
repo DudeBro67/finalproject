@@ -60,11 +60,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-      const prices = {
-        "Chocolate Chip Cookie": 2.50,
-        "Blueberry Muffin": 3.00,
-        "Donut": 1.75
-      };
+     const prices = {
+      "Chocolate Chip Cookie": 2.50,
+      "Blueberry Muffin": 3.00,
+      "Donut": 2.00,
+      "Brownies": 3.00,
+      "Chocolate Cake": 6.00,
+      "Cinnamon Rolls": 4.00
+    };
 
       let items = JSON.parse(localStorage.getItem("cartItems")) || [];
       document.getElementById("cartCount").innerText = items.length;
