@@ -28,43 +28,74 @@
       <h3>Items in Cart: <span id="cartCount">0</span></h3>
 
       <div class="row">
-
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="Media/cookie.jpeg" class="card-img-top" alt="cookie">
-            <div class="card-body">
-              <h5 class="card-title">Chocolate Chip Cookie</h5>
-              <p class="card-text">Delicious cookies with melting chocolate chips!</p>
-              <button class="btn btn-primary" onclick="addToCart('Chocolate Chip Cookie')">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="Media/blue.jpeg" class="card-img-top" alt="muffin">
-            <div class="card-body">
-              <h5 class="card-title">Blueberry Muffin</h5>
-              <p class="card-text">Fresh blueberry muffins!</p>
-              <button class="btn btn-primary" onclick="addToCart('Blueberry Muffin')">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="Media/don.jpeg" class="card-img-top" alt="donut">
-            <div class="card-body">
-              <h5 class="card-title">Donut</h5>
-              <p class="card-text">Amazing donuts with many flavors!</p>
-              <button class="btn btn-primary" onclick="addToCart('Donut')">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="Media/cookie.jpeg" class="card-img-top" alt="choc cookies">
+      <div class="card-body">
+        <h5 class="card-title">Chocolate Chip Cookie</h5>
+        <p class="card-text">Delicious cookies with melting chocolate chips!</p>
+        <button class="btn btn-primary" onclick="addToCart('Chocolate Chip Cookie')">Add to Cart</button>
       </div>
-
     </div>
+  </div>
+
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="Media/blue.jpeg" class="card-img-top" alt="blue muffin">
+      <div class="card-body">
+        <h5 class="card-title">Blueberry Muffin</h5>
+        <p class="card-text">Delicious muffins with perfectly picked fresh blueberries!</p>
+        <button class="btn btn-primary" onclick="addToCart('Blueberry Muffin')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="Media/don.jpeg" class="card-img-top" alt="donuts">
+      <div class="card-body">
+        <h5 class="card-title">Donut</h5>
+        <p class="card-text">Amazing Donuts, with a variety of different flavors!</p>
+        <button class="btn btn-primary" onclick="addToCart('Donut')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="Media/brown.jpeg" class="card-img-top" alt="brownies">
+      <div class="card-body">
+        <h5 class="card-title">Brownies</h5>
+        <p class="card-text">Mouth-watering brownies with warm chocolate chips that melt in your mouth.</p>
+        <button class="btn btn-primary" onclick="addToCart('Brownies')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="Media/ccake.jpeg" class="card-img-top" alt="ChocCake">
+      <div class="card-body">
+        <h5 class="card-title">Chocolate Cake</h5>
+        <p class="card-text">A slice of rich chocolate cake with smooth frosting and amazing flavor.</p>
+        <button class="btn btn-primary" onclick="addToCart('Chocolate Cake')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="Media/cin.jpeg" class="card-img-top" alt="rolls">
+      <div class="card-body">
+        <h5 class="card-title">Cinnamon Rolls</h5>
+        <p class="card-text">Warm cinnamon rolls with creamy frosting and soft pull‑apart dough.</p>
+        <button class="btn btn-primary" onclick="addToCart('Cinnamon Rolls')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script>
       document.getElementById("cartCount").innerText =
@@ -72,7 +103,7 @@
 
       function addToCart(itemName) {
         let count = Number(localStorage.getItem("cartCount")) || 0;
-        count++;
+        count+1;
         localStorage.setItem("cartCount", count);
         document.getElementById("cartCount").innerText = count;
 
