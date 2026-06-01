@@ -118,28 +118,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-     const prices = {
-      "Chocolate Chip Cookie": 2.50,
-      "Blueberry Muffin": 3.00,
-      "Donut": 2.00,
-      "Brownies": 3.00,
-      "Chocolate Cake": 6.00,
-      "Cinnamon Rolls": 4.00
-    };
+     // price list
+      const prices = {
+        "Chocolate Chip Cookie": 2.50,
+        "Blueberry Muffin": 3.00,
+        "Donut": 2.00,
+        "Brownies": 3.00,
+        "Chocolate Cake": 6.00,
+        "Cinnamon Rolls": 4.00
+      };
 
+      // JSOn.parse turns it into an array, local storage stores information even when the page is refreshed
       let items = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // update cart count
       document.getElementById("cartCount").innerText = items.length;
 
       let subtotal = 0;
       const cartItemsDiv = document.getElementById("cartItems");
 
+      // empty cart message
       if (items.length === 0) {
         cartItemsDiv.innerHTML = `<p>Your cart is empty.</p>`;
       } else {
+        // show each item
         items.forEach((itemName, index) => {
+
+          // item price
           const price = prices[itemName] || 0;
+
+          // add to subtotal
           subtotal += price;
 
+          // add item block
           cartItemsDiv.innerHTML += `
             <div class="border rounded p-2 mb-3">
               <div class="form-group">
@@ -152,25 +163,37 @@
                 <input type="text" class="form-control" value="$${price.toFixed(2)}" readonly>
               </div>
 
+              <!-- remove button -->
               <button type="button" class="btn btn-danger" onclick="removeItem(${index})">Remove Item</button>
             </div>
           `;
         });
       }
 
+      // tax + total
       const tax = subtotal * 0.125;
       const total = subtotal + tax;
 
+      // show totals
       document.getElementById("subtotal").value = `$${subtotal.toFixed(2)}`;
       document.getElementById("tax").value = `$${tax.toFixed(2)}`;
       document.getElementById("total").value = `$${total.toFixed(2)}`;
 
+      // remove item function
       function removeItem(index) {
+        // get cart again
         let items = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // remove item
         items.splice(index, 1);
+
+        // save updated cart
         localStorage.setItem("cartItems", JSON.stringify(items));
+
+        // refresh page
         window.location.reload();
       }
+
     </script>
 
   </body>
