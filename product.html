@@ -158,21 +158,36 @@ h3 {
 </div>
 
     <script>
+      // update cart count on page load
       document.getElementById("cartCount").innerText =
         localStorage.getItem("cartCount") || 0;
 
       function addToCart(itemName) {
+        // get current cart count
         let count = Number(localStorage.getItem("cartCount")) || 0;
-        count+1;
+
+        // increase count
+        count = count + 1;
+
+        // save new count
         localStorage.setItem("cartCount", count);
+
+        // update number on the page
         document.getElementById("cartCount").innerText = count;
 
+        // get saved items
         let items = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+        // add new item
         items.push(itemName);
+
+        // save updated list
         localStorage.setItem("cartItems", JSON.stringify(items));
 
+        // go to cart page
         window.location.href = "cart.html";
       }
+
     </script>
   </body>
 </html>
